@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Karma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+*::after,
+*::before {
+  margin: inherit;
+}
+body {
+  font-size: 15px;
+  font-family: "Karma", serif;
+  margin-inline: 0.5rem;
+}
+a {
+  color: #0000ffa8;
+  text-decoration: none;
+}
+h1 {
+  font-size: 2rem;
+  font-family: "Julius Sans One", sans-serif;
+}
+h2 {
+  font-size: 1.1rem;
+  font-family: "Julius Sans One", sans-serif;
+}
+h4 {
+  font-size: 0.8rem;
+  font-family: "Julius Sans One", sans-serif;
+}
+p {
+  font-size: 1rem;
+}
+.btn {
+  border: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+}
+.nav {
+  display: grid;
+  grid-template-columns: 2.5fr 2fr;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+}
+.nav__logo {
+  max-width: 70px;
+}
+.nav__menu__list {
+  width: 95%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.nav__menu {
+  border-bottom: 0.1rem solid #212121;
+}
+.nav__menu + * {
+  margin-left: 0.4rem;
+}
+@media screen and (min-width: 630px) {
+  .nav {
+    font-size: 0.9rem;
+  }
+}
+.banner,
+.about {
+  background-size: cover;
+  background-position: center center;
+  background-clip: content-box;
+  background-attachment: scroll;
+}
+.banner {
+  background-image: url(./images/bannerImg.jpg);
+}
+.banner__text {
+  margin-block: 1.8rem;
+  margin-inline: 1.5rem;
+  padding-block: 3rem;
+  line-height: 2rem;
+}
+.banner__text--p,
+.banner__btn {
+  margin-top: 2.5rem;
+}
+.banner__btn {
+  color: lightcyan;
+  background-color: #212121;
+  padding-block: 0.6rem;
+  padding-inline: 1.5rem;
+}
+.about {
+  background-image: url(./images/aboutImg.jpg);
+}
+.about__card {
+  background-color: rgba(211, 211, 211, 0.692);
+  margin: auto;
+  max-width: 80%;
+}
+.about__img {
+  max-width: 100%;
+}
+.about__text {
+  margin-inline: 0.5rem;
+  line-height: 1.8rem;
+  text-align: center;
+}
+.about__btn {
+  margin-top: 0.8rem;
+  background-color: rgba(211, 211, 211, 0);
+  border-bottom: 2rem;
+  border-bottom: solid 0.2rem #212121;
+}
+@media screen and (min-width: 630px) {
+  .about__card {
+    max-width: 65%;
+    display: flex;
+  }
+
+  .about__img {
+    max-width: 100%;
+    margin: 0;
+  }
+  .about__text {
+    line-height: 2rem;
+    font-size: 3rem;
+    margin: auto auto;
+    max-width: 40%;
+    max-height: 30%;
+  }
+}
+
+.guide {
+  padding-block: 2.8rem;
+  text-align: center;
+  word-spacing: 0.2rem;
+  line-height: 2.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.tourGuide {
+  margin-inline: auto;
+  max-width: 85%;
+}
+@media screen and (min-width: 630px) {
+  .tourGuide {
+    display: flex;
+    flex-direction: row;
+  }
+  .guide + * {
+    margin-left: 5%;
+  }
+}
+.landscape__list {
+  margin-bottom: 2rem;
+  text-align: left;
+  word-spacing: 0.3rem;
+  line-height: 1.8rem;
+  max-width: 100%;
+}
+.landscape__img {
+  max-width: 100%;
+}
+.landscape__btn {
+  background-color: cornsilk;
+  padding-inline: 1rem;
+  border-bottom: solid 0.2rem unset;
+}
+@media screen and (min-width: 630px) {
+  .landscape {
+    display: flex;
+  }
+  .landscape__list:nth-of-type(1) {
+    text-align: left;
+  }
+  .landscape__list:nth-of-type(2) {
+    text-align: center;
+  }
+  .landscape__list:nth-of-type(3) {
+    text-align: right;
+  }
+  .landscape__text {
+    max-width: 40%;
+    margin-inline: auto;
+  }
+}
+.hotel__list {
+  max-width: 85%;
+  margin: 2.3rem auto;
+  text-align: center;
+  background-color: whitesmoke;
+}
+.hotel h1 {
+  margin-top: 2rem;
+  text-align: center;
+}
+.hotel__img {
+  max-width: 100%;
+}
+.hotel__btn {
+  margin-top: 2.5rem;
+  background-color: transparent;
+  padding-inline: 1rem;
+  border: solid 0.15rem #212121;
+}
+.hotel__p {
+  line-height: 2rem;
+}
+@media screen and (min-width: 430px) {
+  .hotel__cont {
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+    margin-inline: auto;
+  }
+  .hotel__list + * {
+    margin-left: 2.5rem;
+  }
+  .hotel__list {
+    max-width: 30%;
+  }
+  .hotel__p {
+    margin-inline: auto;
+    max-width: 50%;
+  }
+}
+.foot__cont {
+  margin-block: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 630px) {
+  .foot__cont {
+    display: grid;
+    grid-template-columns: 3fr 2fr 0.5fr;
+  }
+  .foot__nav {
+    display: flex;
+    flex-direction: row;
+  }
+  .foot__nav h4 + * {
+    margin-left: 5rem;
+  }
+  .foot__media a + * {
+    margin-left: 0.8rem;
+  }
+}
