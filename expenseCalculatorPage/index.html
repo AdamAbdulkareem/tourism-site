@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+   
+  </head>
+  <body>
+    <script>
+        document.getElementsByClassName("header").style.color = "green";
+    </script>
+    <h1 class="header">
+      Expenses
+      <img
+        class="percentage__img"
+        src="./pageAssets/percentage.svg"
+        alt="dollarSign"
+      />
+      calculator
+    </h1>
+    <form action="" method="GET">
+      <fieldset>
+        <legend>Amount allocated</legend>
+        <ul>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/housing.svg"
+              alt="houseIcon"
+            />
+            <label for="housing"
+              >Housing:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="housing"
+                name="housing"
+                type="text"
+                value="10"
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/transportation.svg"
+              alt="transportIcon"
+            />
+            <label for="transport"
+              >Transportation:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="transport"
+                name="transportion"
+                type="text"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/savings.svg"
+              alt="savingIcon"
+            />
+            <label for="savings"
+              >Savings:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="savings"
+                name="savings"
+                type="text"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/clothing.svg"
+              alt="clothingIcon"
+            />
+            <label for="clothing"
+              >Clothing:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="clothing"
+                name="clothing"
+                type="text"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/insurance.svg"
+              alt="insureIcon"
+            />
+            <label for="insurance"
+              >Insurance:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="insurance"
+                name="insurance"
+                type="text"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+          <li>
+            <img
+              class="list__img"
+              src="./pageAssets/retirement.svg"
+              alt="retireIcon"
+            />
+            <label for="retirement"
+              >Retirement:
+              <img
+                class="dollar__sign"
+                src="pageAssets/dollarSign.svg"
+                alt="dollarSign" />
+              <input
+                id="retirement"
+                name="retirement"
+                type="text"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </body>
+</html>
