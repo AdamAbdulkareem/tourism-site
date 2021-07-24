@@ -6,22 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
-    <script>
-        document.getElementsByClassName("header").style.color = "green";
-    </script>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     <h1 class="header">
       Expenses
       <img
         class="percentage__img"
         src="./pageAssets/percentage.svg"
-        alt="dollarSign"
+        alt="nairaSign"
       />
       calculator
     </h1>
     <form action="" method="GET">
+      <fieldset>
+        <legend>Monthly income</legend>
+        <label for="salary"
+          >Salary :
+          <img
+            class="naira__sign"
+            src="pageAssets/nairaSign.svg"
+            alt="nairaSign"
+          />
+          <input
+            class="salaryClass"
+            type="number"
+            name="salary"
+            id="salary"
+            placeholder="0.000"
+            required
+            value=""
+          />
+          <!-- <button class="salaryBtnUpdate">Update</button> -->
+          </label
+        >
+      </fieldset>
       <fieldset>
         <legend>Amount allocated</legend>
         <ul>
@@ -32,19 +52,23 @@
               alt="houseIcon"
             />
             <label for="housing"
-              >Housing:
+              >Housing :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign"
+              />
               <input
+                class="housingClass"
                 id="housing"
                 name="housing"
-                type="text"
-                value="10"
                 placeholder="0.000"
+                type="number"
+                value=""
+                
                 required
-            /></label>
+              />
+            </label>
           </li>
           <li>
             <img
@@ -53,17 +77,18 @@
               alt="transportIcon"
             />
             <label for="transport"
-              >Transportation:
+              >Transportation :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
               <input
+                class="transportClass"
                 id="transport"
                 name="transportion"
-                type="text"
-                value=""
+                type="number"
                 placeholder="0.000"
+                value=""
                 required
             /></label>
           </li>
@@ -74,17 +99,18 @@
               alt="savingIcon"
             />
             <label for="savings"
-              >Savings:
+              >Savings :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
               <input
+                class="savingsClass"
                 id="savings"
                 name="savings"
-                type="text"
-                value=""
+                type="number"
                 placeholder="0.000"
+                value=""
                 required
             /></label>
           </li>
@@ -95,15 +121,16 @@
               alt="clothingIcon"
             />
             <label for="clothing"
-              >Clothing:
+              >Clothing :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
               <input
+                class="clothingClass"
                 id="clothing"
                 name="clothing"
-                type="text"
+                type="number"
                 value=""
                 placeholder="0.000"
                 required
@@ -116,15 +143,16 @@
               alt="insureIcon"
             />
             <label for="insurance"
-              >Insurance:
+              >Insurance :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
               <input
+                class="insuranceClass"
                 id="insurance"
                 name="insurance"
-                type="text"
+                type="number"
                 value=""
                 placeholder="0.000"
                 required
@@ -137,22 +165,30 @@
               alt="retireIcon"
             />
             <label for="retirement"
-              >Retirement:
+              >Retirement :
               <img
-                class="dollar__sign"
-                src="pageAssets/dollarSign.svg"
-                alt="dollarSign" />
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
               <input
+                class="retirementClass"
                 id="retirement"
                 name="retirement"
-                type="text"
+                type="number"
                 value=""
                 placeholder="0.000"
                 required
             /></label>
           </li>
         </ul>
+        <!-- <button class="expenseUpdateBtn">Update</button> -->
+      </fieldset>
+      <fieldset>
+        <legend>Monetary goal</legend>
+        <label for="monetaryGoal"><input class="monetaryClass" id="monetaryGoal" type="number" name="monetaryGoal" value="" required></label>
+        <button class="goalBtnUpdate" >Get number of months</button>
       </fieldset>
     </form>
+    <script type="text/javascript" src="script.js" ></script>
   </body>
 </html>

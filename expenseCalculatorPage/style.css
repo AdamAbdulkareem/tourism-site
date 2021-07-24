@@ -1,13 +1,13 @@
 ul {
   list-style: none;
 }
-.percentage__img{
-   max-width: 30px;
+.percentage__img {
+  max-width: 30px;
 }
-.list__img{
-    max-width: 30px;
+.list__img {
+  max-width: 30px;
 }
-.dollar__sign{
-    max-width: 23px;
-    max-height: 12.5px;
+.naira__sign {
+  max-width: 50px;
+  max-height: 12.5px;
 }
