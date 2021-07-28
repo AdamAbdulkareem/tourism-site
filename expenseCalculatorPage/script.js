@@ -9,7 +9,9 @@ var retirement = document.querySelector(".retirementClass");
 var monetary = document.querySelector(".monetaryClass");
 var getMonthBtn = document.querySelector(".goalBtnUpdate");
 var salary = document.querySelector(".salaryClass");
-
+var canvas = document.querySelector("#myChart");
+var displayMonths = document.querySelector(".monthNumber");
+var monetaryValueIncrement = document.querySelector(".monetaryGoalIncrement");
 // expenses name ends
 
 // Enforce user to input salary value before begins
@@ -23,6 +25,8 @@ var salary = document.querySelector(".salaryClass");
 // }
 // Enforce user to input salary value before ends
 //percentage function begins
+
+// +++Labels used by pieChart+++
 var expenseArr = [
   "Housing",
   "Transport",
@@ -31,108 +35,109 @@ var expenseArr = [
   "Insurance",
   "Retirement",
 ];
-
+// ++++backgroundColour use by pieChart++++
 var expenseColor = [
   "#b91d47",
   "#00aba9",
   "#2b5797",
   "#e8c3b9",
   "#1e7145",
-  "#ffffff",
+  "#f11fff",
 ];
-housing.addEventListener("change", () =>
-  calcPercent(housing, salary)
-);
-transport.addEventListener("change", () =>
-  calcPercent(transport, salary)
-);
-savings.addEventListener("change", () =>
-  calcPercent(savings, salary)
-);
-clothing.addEventListener("change", () =>
-  calcPercent(clothing, salary)
-);
-insurance.addEventListener("change", () =>
-  calcPercent(insurance, salary)
-);
-retirement.addEventListener("change", () =>
-  calcPercent(retirement, salary)
-);
+// +++triggers calcPercent function+++
+housing.addEventListener("change", () => calcPercent(housing, salary));
+transport.addEventListener("change", () => calcPercent(transport, salary));
+savings.addEventListener("change", () => calcPercent(savings, salary));
+clothing.addEventListener("change", () => calcPercent(clothing, salary));
+insurance.addEventListener("change", () => calcPercent(insurance, salary));
+retirement.addEventListener("mouseout", () => calcPercent(retirement, salary));
 
-const tempArr = []
+// +++Array that takes objectLiterals containing expenseName and value+++
 var expensePercentArr = [];
-const calcPercent = (expense, salary) => {
-  
+// +++Array that contain expenseValue+++
+var modifiedExpenseArr = [];
 
+// +++Function that validates the input value of expenses begins+++
+const calcPercent = (expense, salary) => {
   const expenseName = expense.name;
-  const newAmount = parseInt(expense.value);
   const newSalary = parseInt(salary.value);
+  const newAmount = parseInt(expense.value);
   if (newAmount > newSalary) {
-    // console.log("expense", expense)
     alert(`${expenseName.toUpperCase()} EXPENSE IS GREATER THAN SALARY`);
   } else {
-    const newObject = {}
-     newObject['name'] = expense.name;
-    newObject['value'] = newAmount
-
-    const found = expensePercentArr.findIndex(obj => obj['name'] === newObject['name'])
-console.log('>>>', found)
+    const newObject = {};
+    newObject["name"] = expense.name;
+    newObject["value"] = newAmount;
+    const found = expensePercentArr.findIndex(
+      (obj) => obj["name"] === newObject["name"]
+    );
     if (found == -1) {
       expensePercentArr.push(newObject);
     } else {
-      expensePercentArr[found] = newObject
+      expensePercentArr[found] = newObject;
     }
-    console.log('new', newObject)
-    console.log(expensePercentArr);
+    loadGraph();
   }
 };
-fExpensePercentArr.splice(0,1, expensePercentArr.value);
-console.log(fExpensePercentArr);
-   
-var fExpensePercentArr = [];
-// +++++++++ Display percentage fetched in pie-chart form ++++++++
-new Chart("myChart", {
-  type: "pie",
-  data: {
-    labels: expenseArr,
-    datasets: [
-      {
-        backgroundColor: expenseColor,
-        data: expensePercentArr,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Percentage Of Expenses Base On Salary",
-    },
-  },
-});
-// +++++++++ Display percentage fetched in pie-chart form ++++++++
+// +++Function that validates the input value of expenses begins+++
 
-//percentage function ends
+if (modifiedExpenseArr.length === 0) {
+  canvas.style.display = "none";
+}
+
+// +++Function which does the percentage calculation+++
+const loadGraph = () => {
+  modifiedExpenseArr = expensePercentArr.map((expense) => expense.value);
+  var percentOfExpenseArr = modifiedExpenseArr.map(
+    (value) => (percentValue = (value * 100) / salary.value)
+  );
+
+  // +++PieChart dependency+++
+  canvas.style.display = "block";
+  return new Chart("myChart", {
+    type: "pie",
+    data: {
+      labels: expenseArr,
+      datasets: [
+        {
+          backgroundColor: expenseColor,
+          data: percentOfExpenseArr,
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Percentage Of Expenses Base On Salary",
+      },
+    },
+  });
+};
 
 // Monetary goal function (numbers of month) begins
 getMonthBtn.addEventListener("click", () => calcGoalMonths());
 function calcGoalMonths() {
-  goalMonths = monetary.value / savings.value;
-  switch (monetary.value < savings.value) {
-    case true:
-      return alert("monetary goal less than savings");
-      break;
+  const newMonetaryValue = parseInt(monetary.value);
+  const newSavingsValue = parseInt(savings.value);
+  goalMonths = newMonetaryValue / newSavingsValue;
+  if (newMonetaryValue < newSavingsValue) {
+    return alert("Monetary goal less than savings");
+  } else if (Number.isInteger(goalMonths)) {
+   return  displayMonths.innerHTML = goalMonths;
+  } else if (Number.isInteger(goalMonths) == false) {
 
-    case false:
-      switch (Number.isInteger(goalMonths)) {
-        case true:
-          return goalMonths;
-          break;
-        case false:
-          return (moneyIncrement =
-            (goalMonths - parseInt(goalMonths)) * savingsValue);
-      }
+   var incrementConversion =  Math.ceil((moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue));
+    displayMonths.innerHTML = parseInt(goalMonths);
+   return monetaryValueIncrement.innerHTML = incrementConversion;
+  }
+  else{
+    return console.log("hello")
   }
 }
+
+// break;
+// case false:
+//
 // Monetary goal function (numbers of month) ends
 
 // const addFive = (value) => {

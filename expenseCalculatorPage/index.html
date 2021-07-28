@@ -9,7 +9,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     <h1 class="header">
       Expenses
       <img
@@ -85,7 +84,7 @@
               <input
                 class="transportClass"
                 id="transport"
-                name="transportion"
+                name="transportation"
                 type="number"
                 placeholder="0.000"
                 value=""
@@ -183,12 +182,23 @@
         </ul>
         <!-- <button class="expenseUpdateBtn">Update</button> -->
       </fieldset>
+      
+      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
       <fieldset>
         <legend>Monetary goal</legend>
         <label for="monetaryGoal"><input class="monetaryClass" id="monetaryGoal" type="number" name="monetaryGoal" value="" required></label>
         <button class="goalBtnUpdate" >Get number of months</button>
       </fieldset>
     </form>
+    <section>
+      <div class="monthNumber">
+          
+         <div class="monetaryGoalIncrement"></div>
+     
+         </div>
+      </div>
+    </section>
     <script type="text/javascript" src="script.js" ></script>
   </body>
 </html>
