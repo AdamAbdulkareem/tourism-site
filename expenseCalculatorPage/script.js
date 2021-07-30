@@ -6,6 +6,7 @@ var savings = document.querySelector(".savingsClass");
 var clothing = document.querySelector(".clothingClass");
 var insurance = document.querySelector(".insuranceClass");
 var retirement = document.querySelector(".retirementClass");
+var monetaryFieldClass = document.querySelector(".monetaryFieldClass");
 var monetary = document.querySelector(".monetaryClass");
 var getMonthBtn = document.querySelector(".goalBtnUpdate");
 var salary = document.querySelector(".salaryClass");
@@ -14,16 +15,29 @@ var displayMonths = document.querySelector(".monthNumber");
 var monetaryValueIncrement = document.querySelector(".monetaryGoalIncrement");
 // expenses name ends
 
-// Enforce user to input salary value before begins
-// switch (key) {
-//   case value:
+// +++Enforce user to input value in the presented order begins+++
+var enforceInput = [
+  housing,
+  transport,
+  savings,
+  clothing,
+  insurance,
+  retirement,
+  monetaryFieldClass,
+];
+// +++counterFunction index+++
+var i = 0;
+// +++countFunction index+++
+var counterFunction = () => {
+  counterLabel: for (i; i < enforceInput.length; i++) {
+    if (typeof enforceInput[i].value == "string" && i < enforceInput.length) {
+      enforceInput[i + 1].disabled = false;
+      break counterLabel;
+    }
+  }
+  i++;
+};
 
-//     break;
-
-//   default:
-//     break;
-// }
-// Enforce user to input salary value before ends
 //percentage function begins
 
 // +++Labels used by pieChart+++
@@ -77,6 +91,7 @@ const calcPercent = (expense, salary) => {
       expensePercentArr[found] = newObject;
     }
     loadGraph();
+    counterFunction();
   }
 };
 // +++Function that validates the input value of expenses begins+++
@@ -123,23 +138,13 @@ function calcGoalMonths() {
   if (newMonetaryValue < newSavingsValue) {
     return alert("Monetary goal less than savings");
   } else if (Number.isInteger(goalMonths)) {
-   return  displayMonths.innerHTML = goalMonths;
+    return (displayMonths.innerHTML = goalMonths);
   } else if (Number.isInteger(goalMonths) == false) {
-
-   var incrementConversion =  Math.ceil((moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue));
+    var incrementConversion = Math.ceil(
+      (moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue)
+    );
     displayMonths.innerHTML = parseInt(goalMonths);
-   return monetaryValueIncrement.innerHTML = incrementConversion;
+    monetaryValueIncrement.innerHTML = incrementConversion;
   }
-  else{
-    return console.log("hello")
-  }
+  
 }
-
-// break;
-// case false:
-//
-// Monetary goal function (numbers of month) ends
-
-// const addFive = (value) => {
-//   return value + 5
-// }
